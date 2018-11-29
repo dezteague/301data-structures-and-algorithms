@@ -60,10 +60,7 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-	return arr.sort((a,b) => {
-		
-	}
-	)
+  return arr.sort((a, b) => a.localeCompare(b));
 };
 
 /* ------------------------------------------------------------------------------------------------
