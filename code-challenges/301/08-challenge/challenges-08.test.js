@@ -9,7 +9,8 @@ For example, oddValues([1,2,3]) returns [1,3].
 ------------------------------------------------------------------------------------------------ */
 
 const oddValues = (arr) => {
-  // Solution code here...
+  let valuesArr = arr.filter(item => item%2);
+  return valuesArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,7 +25,14 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+  let vowelsArr = arr.filter(item =>{
+    for(let i = 0; i < vowels.length; i++){
+      if (item.includes(vowels[i]))
+        return item;
+    }
+  });
+  return vowelsArr;
 };
 
 
@@ -37,7 +45,11 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 ------------------------------------------------------------------------------------------------ */
 
 const notInFirstArray = (forbiddenValues, arr) => {
-  // Solution code here...
+  let forbiddenArr = arr.filter(item =>{
+    if (!(forbiddenValues.includes(item)))
+      return item;
+  });
+  return forbiddenArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,7 +92,8 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
+  let greaterThan = arr.filter(item => item.baseStat>minBaseStat);
+  return greaterThan;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,7 +158,8 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
+  let noChildren = arr.filter(character => !character.children);
+  return noChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -190,7 +204,7 @@ describe('Testing challenge 2', () => {
 
   test('It should not contain any words that do not contain vowels', () => {
     expect(filterStringsWithVowels(['gregor','hound','xyz'])).not.toContain('xyz');
-  })
+  });
 });
 
 describe('Testing challenge 3', () => {
